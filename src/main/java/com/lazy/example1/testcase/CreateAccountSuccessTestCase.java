@@ -4,6 +4,8 @@ import com.smile.lazy.beans.suite.TestCase;
 
 import static com.lazy.example1.apicall.AccountApiCalls.createAccountApiCall;
 import static com.lazy.example1.apicall.AccountApiCalls.createAccountApiCallWithJsonFile;
+import static com.lazy.example1.apicall.AccountApiCalls.createAccountApiCallWithTemplateFile;
+import static com.lazy.example1.apicall.AccountApiCalls.createAccountApiCallWithTemplateFileComplex;
 import static com.lazy.example1.apicall.AccountApiCalls.getAccountApiCall;
 
 public class CreateAccountSuccessTestCase {
@@ -13,6 +15,10 @@ public class CreateAccountSuccessTestCase {
         testCase1.getApiCalls().add(createAccountApiCall());
         testCase1.getApiCalls().add(getAccountApiCall());
         testCase1.getApiCalls().add(createAccountApiCallWithJsonFile());
+        testCase1.getApiCalls().add(getAccountApiCall());
+        testCase1.getApiCalls().add(createAccountApiCallWithTemplateFile());
+        testCase1.getApiCalls().add(getAccountApiCall());
+        testCase1.getApiCalls().add(createAccountApiCallWithTemplateFileComplex());
         testCase1.getApiCalls().add(getAccountApiCall());
         return testCase1;
     }
