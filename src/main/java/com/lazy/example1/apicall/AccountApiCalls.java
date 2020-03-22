@@ -4,6 +4,7 @@ import com.lazy.example1.dto.AccountSetting;
 import com.smile.lazy.beans.suite.ApiCall;
 import com.smile.lazy.beans.suite.assertions.AssertionRule;
 import com.smile.lazy.beans.suite.assertions.AssertionRuleGroup;
+import com.smile.lazy.exception.LazyCoreException;
 import com.smile.lazy.wrapper.Actions;
 import com.smile.lazy.wrapper.Assert;
 
@@ -30,7 +31,7 @@ public class AccountApiCalls {
         return apiCall1;
     }
 
-    public static ApiCall createAccountApiCallWithJsonFile() {
+    public static ApiCall createAccountApiCallWithJsonFile() throws LazyCoreException {
         ApiCall apiCall1 = new ApiCall(1, "Create Account");
         apiCall1.setUri("service/accounts");
         apiCall1.setHttpMethod("POST");
@@ -41,7 +42,7 @@ public class AccountApiCalls {
         return apiCall1;
     }
 
-    public static ApiCall createAccountApiCallWithTemplateFile() {
+    public static ApiCall createAccountApiCallWithTemplateFile() throws LazyCoreException {
         ApiCall apiCall1 = new ApiCall(1, "Create Account - using template");
         apiCall1.setUri("service/accounts");
         apiCall1.setHttpMethod("POST");
@@ -67,7 +68,7 @@ public class AccountApiCalls {
         return apiCall1;
     }
 
-    public static ApiCall createAccountApiCallWithTemplateFileComplex() {
+    public static ApiCall createAccountApiCallWithTemplateFileComplex() throws LazyCoreException {
         ApiCall apiCall1 = new ApiCall(1, "Create Account - using complex template");
         apiCall1.setUri("service/accounts");
         apiCall1.setHttpMethod("POST");

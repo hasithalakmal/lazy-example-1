@@ -1,6 +1,7 @@
 package com.lazy.example1.testcase;
 
 import com.smile.lazy.beans.suite.TestCase;
+import com.smile.lazy.exception.LazyCoreException;
 
 import static com.lazy.example1.apicall.AccountApiCalls.createAccountApiCall;
 import static com.lazy.example1.apicall.AccountApiCalls.createAccountApiCallWithJsonFile;
@@ -10,7 +11,7 @@ import static com.lazy.example1.apicall.AccountApiCalls.getAccountApiCall;
 
 public class CreateAccountSuccessTestCase {
 
-    public static TestCase getCreateAccountTestCase() {
+    public static TestCase getCreateAccountTestCase() throws LazyCoreException {
         TestCase testCase1 = new TestCase( "Create Account successfully");
         testCase1.getApiCalls().add(createAccountApiCall());
         testCase1.getApiCalls().add(getAccountApiCall());

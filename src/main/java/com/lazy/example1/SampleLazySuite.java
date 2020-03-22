@@ -4,13 +4,14 @@ import com.smile.lazy.beans.DefaultValues;
 import com.smile.lazy.beans.LazySuite;
 import com.smile.lazy.beans.suite.Global;
 import com.smile.lazy.beans.suite.Stack;
+import com.smile.lazy.exception.LazyCoreException;
 
 import static com.lazy.example1.suites.AccountApiTestSuite.getAccountApiTestSuite;
 import static com.smile.lazy.utils.SampleDefaultValues.createDefaultValues;
 
 public class SampleLazySuite {
 
-    public static LazySuite populateSampleTestSuite() {
+    public static LazySuite populateSampleTestSuite() throws LazyCoreException {
         DefaultValues defaultValues = createDefaultValues();
         Stack lazySuiteStack = new Stack(defaultValues);
         Global global = new Global();
