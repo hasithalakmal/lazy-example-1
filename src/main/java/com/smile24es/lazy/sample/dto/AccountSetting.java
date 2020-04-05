@@ -1,4 +1,4 @@
-package com.lazy.example1.dto;
+package com.smile24es.lazy.sample.dto;
 
 public class AccountSetting {
 

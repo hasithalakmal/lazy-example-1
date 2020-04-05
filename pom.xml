@@ -38,14 +38,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.smile</groupId>
+            <groupId>com.smile24es</groupId>
             <artifactId>lazy-beans</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.18</version>
         </dependency>
         <dependency>
-            <groupId>com.smile</groupId>
+            <groupId>com.smile24es</groupId>
             <artifactId>lazy-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.18</version>
         </dependency>
     </dependencies>
 </project>
