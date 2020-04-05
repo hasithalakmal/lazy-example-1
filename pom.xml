@@ -39,11 +39,6 @@
         </dependency>
         <dependency>
             <groupId>com.smile24es</groupId>
-            <artifactId>lazy-beans</artifactId>
-            <version>0.0.18</version>
-        </dependency>
-        <dependency>
-            <groupId>com.smile24es</groupId>
             <artifactId>lazy-core</artifactId>
             <version>0.0.18</version>
         </dependency>
