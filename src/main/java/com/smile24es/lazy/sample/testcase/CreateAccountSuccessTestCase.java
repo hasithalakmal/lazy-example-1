@@ -12,6 +12,10 @@ import java.util.List;
 
 public class CreateAccountSuccessTestCase {
 
+    private CreateAccountSuccessTestCase() {
+        //This is a private constructor
+    }
+
     public static TestCase getCreateAccountTestCase() throws LazyCoreException {
         TestCase testCase1 = new TestCase("Create Account successfully - 1");
         testCase1.getStack().addDefaultAssertionGroup(createDefaultAssertionRuleGroup());
