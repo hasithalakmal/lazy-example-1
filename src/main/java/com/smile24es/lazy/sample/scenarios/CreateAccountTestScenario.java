@@ -13,6 +13,10 @@ import java.util.List;
 
 public class CreateAccountTestScenario {
 
+    private CreateAccountTestScenario() {
+        //This is a private constructor
+    }
+
     public static TestScenario getAccountCreationTestScenario() throws LazyCoreException {
         TestScenario testScenario1 = new TestScenario("Create Account");
         testScenario1.getStack().addDefaultAssertionGroup(createDefaultAssertionRuleGroup());

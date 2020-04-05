@@ -10,6 +10,10 @@ import static com.smile24es.lazy.sample.scenarios.CreateAccountTestScenario.getA
 
 public class AccountApiTestSuite {
 
+    private AccountApiTestSuite() {
+        //This is a private constructor
+    }
+
     public static TestSuite getAccountApiTestSuite() throws LazyCoreException {
         TestSuite testSuite1 = new TestSuite("Account Test Suite");
         testSuite1.getTestScenarios().add(getAccountCreationTestScenario());

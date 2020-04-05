@@ -16,6 +16,10 @@ import java.util.Map;
 
 public class AccountApiCalls {
 
+    private AccountApiCalls() {
+        //This is a private constructor
+    }
+
     public static ApiCall createAccountApiCall() {
         ApiCall apiCall1 = new ApiCall("Create Account - String");
         apiCall1.getStack().addDefaultAssertionGroup(createDefaultAssertionRuleGroup());
