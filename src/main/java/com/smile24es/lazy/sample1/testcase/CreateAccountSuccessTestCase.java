@@ -1,20 +1,16 @@
-package com.smile24es.lazy.sample.testcase;
+package com.smile24es.lazy.sample1.testcase;
 
-import com.smile24es.lazy.sample.apicall.AccountApiCalls;
 import com.smile24es.lazy.beans.suite.TestCase;
 import com.smile24es.lazy.beans.suite.assertions.AssertionRule;
 import com.smile24es.lazy.beans.suite.assertions.AssertionRuleGroup;
 import com.smile24es.lazy.exception.LazyCoreException;
+import com.smile24es.lazy.sample1.apicall.AccountApiCalls;
 import com.smile24es.lazy.wrapper.Assert;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class CreateAccountSuccessTestCase {
-
-    private CreateAccountSuccessTestCase() {
-        //This is a private constructor
-    }
 
     public static TestCase getCreateAccountTestCase() throws LazyCoreException {
         TestCase testCase1 = new TestCase("Create Account successfully - 1");
@@ -51,10 +47,10 @@ public class CreateAccountSuccessTestCase {
 
 
     private static AssertionRuleGroup createDefaultAssertionRuleGroup() {
-        AssertionRuleGroup defaultCreateAssertionGroup = new AssertionRuleGroup(1, "Test case assertion group");
+        AssertionRuleGroup defaultCreateAssertionGroup = new AssertionRuleGroup("Test case assertion group");
         List<AssertionRule> assertionRules = defaultCreateAssertionGroup.getAssertionRules();
         //Performance impacted assertion
-        AssertionRule responseTimeAssertion = Assert.responseTimeAssertionGreaterThanGivenMilliSeconds("500");
+        AssertionRule responseTimeAssertion = Assert.responseTimeLessThan("500");
         responseTimeAssertion.setAssertionRuleKey("high.performance.response.time.assertion");
         assertionRules.add(responseTimeAssertion);
         return defaultCreateAssertionGroup;

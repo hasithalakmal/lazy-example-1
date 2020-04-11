@@ -1,14 +1,10 @@
-package com.smile24es.lazy.sample;
+package com.smile24es.lazy.sample1;
 
-import com.smile24es.lazy.sample.suites.AccountApiTestSuite;
 import com.smile24es.lazy.beans.LazySuite;
 import com.smile24es.lazy.exception.LazyCoreException;
+import com.smile24es.lazy.sample1.suites.AccountApiTestSuite;
 
 public class SampleLazySuite1 {
-
-    private SampleLazySuite1() {
-        //This is a private constructor
-    }
 
     public static LazySuite populateSampleLazySuite() throws LazyCoreException {
         LazySuite lazySuite = new LazySuite("Sample lazy suite 1");

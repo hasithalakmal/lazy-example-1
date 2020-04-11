@@ -1,10 +1,10 @@
-package com.smile24es.lazy.sample.apicall;
+package com.smile24es.lazy.sample1.apicall;
 
-import com.smile24es.lazy.sample.dto.AccountSetting;
 import com.smile24es.lazy.beans.suite.ApiCall;
 import com.smile24es.lazy.beans.suite.assertions.AssertionRule;
 import com.smile24es.lazy.beans.suite.assertions.AssertionRuleGroup;
 import com.smile24es.lazy.exception.LazyCoreException;
+import com.smile24es.lazy.sample1.dto.AccountSetting;
 import com.smile24es.lazy.wrapper.Actions;
 import com.smile24es.lazy.wrapper.Assert;
 
@@ -16,10 +16,6 @@ import java.util.Map;
 
 public class AccountApiCalls {
 
-    private AccountApiCalls() {
-        //This is a private constructor
-    }
-
     public static ApiCall createAccountApiCall() {
         ApiCall apiCall1 = new ApiCall("Create Account - String");
         apiCall1.getStack().addDefaultAssertionGroup(createDefaultAssertionRuleGroup());
@@ -29,16 +25,16 @@ public class AccountApiCalls {
               + "\"accountName\":\"Sathara-1577641690\",\"ownerName\":\"Hasitha-1577641690\",\"versionId\":\"1.0.0\","
               + "\"settings\":[{\"key\":\"setting1\",\"value\":\"1577641690\"},{\"key\":\"setting2\",\"value\":\"1577641690\"}]}");
         apiCall1.addAssertionGroup(accountAssertionGroup1("Sathara-1577641690"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.id", "$['accountId']"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.name", "$['accountName']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.id", "$['accountId']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.name", "$['accountName']"));
         return apiCall1;
     }
 
     private static AssertionRuleGroup createDefaultAssertionRuleGroup() {
-        AssertionRuleGroup defaultCreateAssertionGroup = new AssertionRuleGroup(1, "Test case assertion group");
+        AssertionRuleGroup defaultCreateAssertionGroup = new AssertionRuleGroup("Test case assertion group");
         List<AssertionRule> assertionRules = defaultCreateAssertionGroup.getAssertionRules();
         //Performance impacted assertion
-        AssertionRule responseTimeAssertion = Assert.responseTimeAssertionGreaterThanGivenMilliSeconds("100");
+        AssertionRule responseTimeAssertion = Assert.responseTimeLessThan("100");
         responseTimeAssertion.setAssertionRuleKey("high.performance.response.time.assertion");
         assertionRules.add(responseTimeAssertion);
         return defaultCreateAssertionGroup;
@@ -50,8 +46,8 @@ public class AccountApiCalls {
         apiCall1.setHttpMethod("POST");
         apiCall1.setRequestBodyFromJson("request-body/account-api/create-account/create-simple-account.json");
         apiCall1.addAssertionGroup(accountAssertionGroup1("Sathara-1577641690"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.id", "$['accountId']"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.name", "$['accountName']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.id", "$['accountId']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.name", "$['accountName']"));
         apiCall1.setAssignGroups(Arrays.asList("BVT", "Group2"));
         return apiCall1;
     }
@@ -77,8 +73,8 @@ public class AccountApiCalls {
 
         apiCall1.setRequestBodyFromJsonTemplate("request-body/account-api/templates/create-account.ftl", templateData);
         apiCall1.addAssertionGroup(accountAssertionGroup1("My Account"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.id", "$['accountId']"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.name", "$['accountName']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.id", "$['accountId']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.name", "$['accountName']"));
 
         apiCall1.setAssignGroups(Arrays.asList("BVT"));
         return apiCall1;
@@ -105,8 +101,8 @@ public class AccountApiCalls {
 
         apiCall1.setRequestBodyFromJsonTemplate("request-body/account-api/templates/create-account-2.ftl", templateData);
         apiCall1.addAssertionGroup(accountAssertionGroup1("My Account"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.id", "$['accountId']"));
-        apiCall1.getPostActions().add(Actions.createGlobalVariableFromBody("created.account.name", "$['accountName']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.id", "$['accountId']"));
+        apiCall1.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.account.name", "$['accountName']"));
 
         apiCall1.setAssignGroups(Arrays.asList("Group2"));
 
@@ -118,8 +114,8 @@ public class AccountApiCalls {
         apiCall2.disableAssertion("created.http.status.assertion");
         apiCall2.setUri("service/accounts/{{lazy.global.created.account.id}}");
         apiCall2.addAssertionGroup(accountAssertionGroup1("{{lazy.global.created.account.name}}"));
-        apiCall2.addAssertionRule(Assert.equalBodyValueAssertion("$['accountId']", "{{lazy.global.created.account.id}}"));
-        apiCall2.addAssertionRule(Assert.responseCodeAssertion("200"));
+        apiCall2.addAssertionRule(Assert.equal("$['accountId']", "{{lazy.global.created.account.id}}"));
+        apiCall2.addAssertionRule(Assert.responseCodeEqual(200));
         return apiCall2;
     }
 
@@ -133,16 +129,16 @@ public class AccountApiCalls {
         apiCall2.enableAssertion("created.http.status.assertion");
         apiCall2.setUri("service/accounts/{{lazy.global.created.account.id}}");
         apiCall2.addAssertionGroup(accountAssertionGroup1("{{lazy.global.created.account.name}}"));
-        apiCall2.addAssertionRule(Assert.equalBodyValueAssertion("$['accountId']", "{{lazy.global.created.account.id}}"));
-        apiCall2.addAssertionRule(Assert.responseCodeAssertion("200"));
+        apiCall2.addAssertionRule(Assert.equal("$['accountId']", "{{lazy.global.created.account.id}}"));
+        apiCall2.addAssertionRule(Assert.responseCodeEqual(200));
         return apiCall2;
     }
 
     private static AssertionRuleGroup accountAssertionGroup1(String expectedAccountName) {
-        AssertionRuleGroup assertionRuleGroup1 = new AssertionRuleGroup(1000, "Create Account success assertions");
+        AssertionRuleGroup assertionRuleGroup1 = new AssertionRuleGroup("Create Account success assertions");
         List<AssertionRule> assertionRules = assertionRuleGroup1.getAssertionRules();
-        assertionRules.add(Assert.notNullBodyValueAssertion("$['accountName']"));
-        assertionRules.add(Assert.equalBodyValueAssertion("$['accountName']", expectedAccountName));
+        assertionRules.add(Assert.notNull("$['accountName']"));
+        assertionRules.add(Assert.equal("$['accountName']", expectedAccountName));
         return assertionRuleGroup1;
     }
 }

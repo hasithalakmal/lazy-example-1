@@ -1,18 +1,14 @@
-package com.smile24es.lazy.sample.suites;
+package com.smile24es.lazy.sample1.suites;
 
 import com.smile24es.lazy.beans.suite.TestSuite;
 import com.smile24es.lazy.exception.LazyCoreException;
 
 import java.util.Arrays;
 
-import static com.smile24es.lazy.sample.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
+import static com.smile24es.lazy.sample1.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
 
 
 public class AccountApiTestSuite {
-
-    private AccountApiTestSuite() {
-        //This is a private constructor
-    }
 
     public static TestSuite getAccountApiTestSuite() throws LazyCoreException {
         TestSuite testSuite1 = new TestSuite("Account Test Suite");

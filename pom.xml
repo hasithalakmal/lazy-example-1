@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.smile24es</groupId>
             <artifactId>lazy-core</artifactId>
-            <version>0.0.20</version>
+            <version>0.0.23</version>
         </dependency>
     </dependencies>
 </project>
