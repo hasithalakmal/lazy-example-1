@@ -1,4 +1,4 @@
-package com.smile24es.lazy.sample0.dto;
+package com.smile24es.lazy.sample1.dto;
 
 import java.util.List;
 

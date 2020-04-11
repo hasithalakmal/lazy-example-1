@@ -14,8 +14,9 @@ import com.smile24es.lazy.beans.suite.TestCase;
 import com.smile24es.lazy.beans.suite.TestScenario;
 import com.smile24es.lazy.beans.suite.TestSuite;
 import com.smile24es.lazy.sample0.SmileLazySuite0;
-import com.smile24es.lazy.sample1.SampleLazySuite1;
-import com.smile24es.lazy.sample1.suites.AccountApiTestSuite;
+import com.smile24es.lazy.sample1.SmileLazySuite1;
+import com.smile24es.lazy.sample2.SampleLazySuite2;
+import com.smile24es.lazy.sample2.suites.AccountApiTestSuite;
 import com.smile24es.lazy.utils.JsonUtil;
 import com.smile24es.lazy.wrapper.Executor;
 import org.junit.jupiter.api.Test;
@@ -27,9 +28,9 @@ import org.testng.Assert;
 import java.util.Arrays;
 
 import static com.smile24es.lazy.common.SampleDefaultValues.createDefaultValues;
-import static com.smile24es.lazy.sample1.apicall.AccountApiCalls.createAccountApiCall;
-import static com.smile24es.lazy.sample1.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
-import static com.smile24es.lazy.sample1.testcase.CreateAccountSuccessTestCase.getCreateAccountTestCase;
+import static com.smile24es.lazy.sample2.apicall.AccountApiCalls.createAccountApiCall;
+import static com.smile24es.lazy.sample2.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
+import static com.smile24es.lazy.sample2.testcase.CreateAccountSuccessTestCase.getCreateAccountTestCase;
 
 public class LazyManagerTest extends BaseTest {
 
@@ -44,6 +45,18 @@ public class LazyManagerTest extends BaseTest {
             LazyExecutionData results = executor.executeLazySuite(sampleLazySuite);
             Assert.assertNotNull(results);
             Assert.assertNotNull(results.getTestSuiteExecutionData());
+        } catch (Exception ex) {
+            Assert.fail(SUCCESS_SCENARIOS_SHOULD_NOT_BE_FAILED, ex);
+        }
+    }
+
+    @Test
+    public void accountApiSample1() {
+        try {
+            LazySuite sampleLazySuite = SmileLazySuite1.populateSampleLazySuite();
+            LazyExecutionData results = executor.executeLazySuite(sampleLazySuite);
+            Assert.assertNotNull(results);
+            Assert.assertNotNull(results.getTestSuiteExecutionData());
 //            String resultString = JsonUtil.getJsonStringFromObjectProtectedAndPublic(results);
 //            LOGGER.debug(EXECUTION_RESULTS_LOG, resultString);
         } catch (Exception ex) {
@@ -54,7 +67,7 @@ public class LazyManagerTest extends BaseTest {
     @Test
     public void executeSampleLazySuite() {
         try {
-            LazySuite sampleLazySuite = SampleLazySuite1.populateSampleLazySuite();
+            LazySuite sampleLazySuite = SampleLazySuite2.populateSampleLazySuite();
             LazyExecutionData results = executor.executeLazySuite(sampleLazySuite);
             Assert.assertNotNull(results);
             Assert.assertNotNull(results.getTestSuiteExecutionData());
@@ -140,7 +153,7 @@ public class LazyManagerTest extends BaseTest {
     @Test
     public void executeTestSuiteByApiCallGroupName() {
         try {
-            LazySuite sampleLazySuite = SampleLazySuite1.populateSampleLazySuite();
+            LazySuite sampleLazySuite = SampleLazySuite2.populateSampleLazySuite();
             LazyExecutionGroup lazyExecutionGroup = new LazyExecutionGroup();
             lazyExecutionGroup.setApiCallExecutionGroupNames(Arrays.asList("BVT"));
             LazyExecutionData results = executor.executeLazySuite(sampleLazySuite, lazyExecutionGroup);
@@ -157,7 +170,7 @@ public class LazyManagerTest extends BaseTest {
     @Test
     public void executeTestSuiteByApiCaseGroupName() {
         try {
-            LazySuite sampleLazySuite = SampleLazySuite1.populateSampleLazySuite();
+            LazySuite sampleLazySuite = SampleLazySuite2.populateSampleLazySuite();
             LazyExecutionGroup lazyExecutionGroup = new LazyExecutionGroup();
             lazyExecutionGroup.setTestCaseExecutionGroupNames(Arrays.asList("BVT_TC"));
             LazyExecutionData results = executor.executeLazySuite(sampleLazySuite, lazyExecutionGroup);
@@ -174,7 +187,7 @@ public class LazyManagerTest extends BaseTest {
     @Test
     public void executeTestSuiteCombination() {
         try {
-            LazySuite sampleLazySuite = SampleLazySuite1.populateSampleLazySuite();
+            LazySuite sampleLazySuite = SampleLazySuite2.populateSampleLazySuite();
             LazyExecutionGroup lazyExecutionGroup = new LazyExecutionGroup();
             lazyExecutionGroup.setTestCaseExecutionGroupNames(Arrays.asList("BVT_TC"));
             lazyExecutionGroup.setApiCallExecutionGroupNames(Arrays.asList("BVT"));

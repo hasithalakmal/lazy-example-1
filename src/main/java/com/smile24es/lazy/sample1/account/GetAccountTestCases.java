@@ -1,15 +1,15 @@
-package com.smile24es.lazy.sample0.account;
+package com.smile24es.lazy.sample1.account;
 
 import com.smile24es.lazy.beans.suite.TestCase;
 import com.smile24es.lazy.exception.LazyCoreException;
-import com.smile24es.lazy.sample0.dto.AccountSetting;
-import com.smile24es.lazy.sample0.dto.AccountTo;
-import com.smile24es.lazy.sample0.dto.ErrorTo;
+import com.smile24es.lazy.sample1.dto.AccountSetting;
+import com.smile24es.lazy.sample1.dto.AccountTo;
+import com.smile24es.lazy.sample1.dto.ErrorTo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.smile24es.lazy.sample0.account.AccountApiCall.mockApiCall;
+import static com.smile24es.lazy.sample1.account.AccountApiCall.mockApiCall;
 import static java.text.MessageFormat.format;
 
 public class GetAccountTestCases {

@@ -1,9 +1,9 @@
-package com.smile24es.lazy.sample0.account;
+package com.smile24es.lazy.sample1.account;
 
 import com.smile24es.lazy.beans.suite.ApiCall;
 import com.smile24es.lazy.exception.LazyCoreException;
-import com.smile24es.lazy.sample0.dto.AccountTo;
-import com.smile24es.lazy.sample0.dto.ErrorTo;
+import com.smile24es.lazy.sample1.dto.AccountTo;
+import com.smile24es.lazy.sample1.dto.ErrorTo;
 import com.smile24es.lazy.wrapper.Actions;
 import com.smile24es.lazy.wrapper.Assert;
 

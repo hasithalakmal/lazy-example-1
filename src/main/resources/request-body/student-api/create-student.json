@@ -1,0 +1,32 @@
+{
+  "studentName": "Jone Doe",
+  "weight": 60.75,
+  "phone": {
+    "number": "12345678"
+  },
+  "settings": [
+    {
+      "key": "school.fee.payment.period",
+      "value": "monthly",
+      "amount": 10
+    },
+    {
+      "key": "sport.club.payment.period",
+      "value": "annually",
+      "amount": 20.85,
+      "paymentMethods": [
+        {
+          "type": "Card",
+          "minValue": 10
+        },
+        {
+          "type": "Cash",
+          "allowd": [
+            "SLR",
+            "USD"
+          ]
+        }
+      ]
+    }
+  ]
+}

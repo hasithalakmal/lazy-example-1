@@ -1,11 +1,11 @@
-package com.smile24es.lazy.sample1.suites;
+package com.smile24es.lazy.sample2.suites;
 
 import com.smile24es.lazy.beans.suite.TestSuite;
 import com.smile24es.lazy.exception.LazyCoreException;
 
 import java.util.Arrays;
 
-import static com.smile24es.lazy.sample1.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
+import static com.smile24es.lazy.sample2.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
 
 
 public class AccountApiTestSuite {

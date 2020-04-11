@@ -1,4 +1,4 @@
-package com.smile24es.lazy.sample0.account;
+package com.smile24es.lazy.sample1.account;
 
 import com.smile24es.lazy.beans.suite.TestSuite;
 import com.smile24es.lazy.beans.suite.assertions.AssertionRule;
