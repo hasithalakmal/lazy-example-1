@@ -9,7 +9,6 @@ import com.smile24es.lazy.sample1.dto.ErrorTo;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.smile24es.lazy.sample1.account.AccountApiCall.mockApiCall;
 import static java.text.MessageFormat.format;
 
 public class GetAccountTestCases {
@@ -28,16 +27,10 @@ public class GetAccountTestCases {
         return createAccountTC;
     }
 
-    public static TestCase mockApiTest() throws LazyCoreException {
-        TestCase createAccountTC = new TestCase("Mock API test");
-        createAccountTC.getApiCalls().add(mockApiCall());
-        return createAccountTC;
-    }
-
     public static TestCase getInvalidAccount() throws LazyCoreException {
         TestCase invalidAccountGetTC = new TestCase("Get Invalid Account");
 
-        String invalidAccountId="10000-invalid";
+        String invalidAccountId = "10000-invalid";
         ErrorTo errorTo = new ErrorTo("ACC_10100", format("No account found for the given account id [{0}]", invalidAccountId), "404 NOT_FOUND");
 
         invalidAccountGetTC.getApiCalls().add(AccountApiCall.getInvalidAccountApiCall(invalidAccountId, errorTo));

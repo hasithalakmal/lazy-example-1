@@ -23,7 +23,7 @@ public class CreateAccountSuccessTestCase {
         testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCall());
         testCase1.getApiCalls().add(AccountApiCalls.createAccountApiCallWithTemplateFileComplex());
         testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCall());
-        testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCall2());
+        testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCallDemoAssertionEnablement());
         return testCase1;
     }
 
@@ -38,7 +38,7 @@ public class CreateAccountSuccessTestCase {
         testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCall());
         testCase1.getApiCalls().add(AccountApiCalls.createAccountApiCallWithTemplateFileComplex());
         testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCall());
-        testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCall2());
+        testCase1.getApiCalls().add(AccountApiCalls.getAccountApiCallDemoAssertionEnablement());
 
         testCase1.setAssignGroups(Arrays.asList("BVT_TC"));
 

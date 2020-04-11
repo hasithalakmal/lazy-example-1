@@ -5,8 +5,6 @@ import com.smile24es.lazy.exception.LazyCoreException;
 
 import static com.smile24es.lazy.sample0.student.StudentApiCall.createStudentApiCall;
 import static com.smile24es.lazy.sample0.student.StudentApiCall.getStudentById;
-import static com.smile24es.lazy.sample1.account.AccountApiCall.mockApiCall;
-import static java.text.MessageFormat.format;
 
 public class StudentApiTestCases {
 

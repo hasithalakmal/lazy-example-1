@@ -1,14 +1,11 @@
 package com.smile24es.lazy.sample0.student;
 
 import com.smile24es.lazy.beans.suite.ApiCall;
-import com.smile24es.lazy.beans.suite.actions.Action;
 import com.smile24es.lazy.exception.LazyCoreException;
 import com.smile24es.lazy.wrapper.Actions;
 import com.smile24es.lazy.wrapper.Assert;
 
 import java.util.Arrays;
-
-import static java.text.MessageFormat.format;
 
 public class StudentApiCall {
 
@@ -20,8 +17,6 @@ public class StudentApiCall {
 
         //Http Code Assertion
         getAccountApiCall.addAssertionRule(Assert.responseCodeEqual(201));
-
-        getAccountApiCall.addAssertionRule(Assert.equal("$.studentId", 1));
 
         getAccountApiCall.getPostActions().add(Actions.createGlobalVariableFromResponseBody("created.student.id", "$.studentId"));
         return getAccountApiCall;

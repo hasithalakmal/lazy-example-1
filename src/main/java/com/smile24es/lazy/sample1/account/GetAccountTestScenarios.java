@@ -11,12 +11,6 @@ public class GetAccountTestScenarios {
         return successAccountCreation;
     }
 
-    public static TestScenario mockTestScenarios() throws LazyCoreException {
-        TestScenario successAccountCreation = new TestScenario("get Account");
-        successAccountCreation.getTestCases().add(GetAccountTestCases.mockApiTest());
-        return successAccountCreation;
-    }
-
     public static TestScenario getAccountErrorScenarios() throws LazyCoreException {
         TestScenario invalidAccountGetScenarios = new TestScenario("Invalid account get scenarios");
         invalidAccountGetScenarios.getTestCases().add(GetAccountTestCases.getInvalidAccount());

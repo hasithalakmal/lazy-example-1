@@ -13,8 +13,6 @@ import com.smile24es.lazy.beans.suite.Stack;
 import com.smile24es.lazy.beans.suite.TestCase;
 import com.smile24es.lazy.beans.suite.TestScenario;
 import com.smile24es.lazy.beans.suite.TestSuite;
-import com.smile24es.lazy.sample0.SmileLazySuite0;
-import com.smile24es.lazy.sample1.SmileLazySuite1;
 import com.smile24es.lazy.sample2.SampleLazySuite2;
 import com.smile24es.lazy.sample2.suites.AccountApiTestSuite;
 import com.smile24es.lazy.utils.JsonUtil;
@@ -32,37 +30,11 @@ import static com.smile24es.lazy.sample2.apicall.AccountApiCalls.createAccountAp
 import static com.smile24es.lazy.sample2.scenarios.CreateAccountTestScenario.getAccountCreationTestScenario;
 import static com.smile24es.lazy.sample2.testcase.CreateAccountSuccessTestCase.getCreateAccountTestCase;
 
-public class LazyManagerTest extends BaseTest {
+public class LazyManagerTestSample2 extends BaseTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LazyManagerTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LazyManagerTestSample2.class);
     @Autowired
     private Executor executor;
-
-    @Test
-    public void accountApiSample0() {
-        try {
-            LazySuite sampleLazySuite = SmileLazySuite0.populateSampleLazySuite();
-            LazyExecutionData results = executor.executeLazySuite(sampleLazySuite);
-            Assert.assertNotNull(results);
-            Assert.assertNotNull(results.getTestSuiteExecutionData());
-        } catch (Exception ex) {
-            Assert.fail(SUCCESS_SCENARIOS_SHOULD_NOT_BE_FAILED, ex);
-        }
-    }
-
-    @Test
-    public void accountApiSample1() {
-        try {
-            LazySuite sampleLazySuite = SmileLazySuite1.populateSampleLazySuite();
-            LazyExecutionData results = executor.executeLazySuite(sampleLazySuite);
-            Assert.assertNotNull(results);
-            Assert.assertNotNull(results.getTestSuiteExecutionData());
-//            String resultString = JsonUtil.getJsonStringFromObjectProtectedAndPublic(results);
-//            LOGGER.debug(EXECUTION_RESULTS_LOG, resultString);
-        } catch (Exception ex) {
-            Assert.fail(SUCCESS_SCENARIOS_SHOULD_NOT_BE_FAILED, ex);
-        }
-    }
 
     @Test
     public void executeSampleLazySuite() {

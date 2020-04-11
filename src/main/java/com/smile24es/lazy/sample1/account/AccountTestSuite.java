@@ -16,7 +16,6 @@ public class AccountTestSuite {
         accountApiTestSuite.getStack().addDefaultAssertionRule(assertionRule);
         accountApiTestSuite.getTestScenarios().add(GetAccountTestScenarios.createAccountTestScenario());
         accountApiTestSuite.getTestScenarios().add(GetAccountTestScenarios.getAccountErrorScenarios());
-        accountApiTestSuite.getTestScenarios().add(GetAccountTestScenarios.mockTestScenarios());
         return accountApiTestSuite;
     }
 }
