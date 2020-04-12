@@ -112,7 +112,7 @@ public class AccountApiCalls {
     public static ApiCall getAccountApiCall() {
         ApiCall apiCall2 = new ApiCall("Get Account by Id");
         apiCall2.disableAssertion("created.http.status.assertion");
-        apiCall2.setUri("service/accounts/{{lazy.global.created.account.id}}");
+        apiCall2.setUri("service/accounts/{{lazy.global.created.account.id}}?settings=true");
         apiCall2.addAssertionGroup(accountAssertionGroup1("{{lazy.global.created.account.name}}"));
         apiCall2.addAssertionRule(Assert.equal("$['accountId']", "{{lazy.global.created.account.id}}"));
         apiCall2.addAssertionRule(Assert.responseCodeEqual(200));
@@ -127,7 +127,7 @@ public class AccountApiCalls {
     public static ApiCall getAccountApiCallDemoAssertionEnablement() {
         ApiCall apiCall2 = new ApiCall("Get Account by Id Demo Assertion Enablement");
         apiCall2.enableAssertion("created.http.status.assertion");
-        apiCall2.setUri("service/accounts/{{lazy.global.created.account.id}}");
+        apiCall2.setUri("service/accounts/{{lazy.global.created.account.id}}?settings=true");
         apiCall2.addAssertionGroup(accountAssertionGroup1("{{lazy.global.created.account.name}}"));
         apiCall2.addAssertionRule(Assert.equal("$['accountId']", "{{lazy.global.created.account.id}}"));
         apiCall2.addAssertionRule(Assert.responseCodeEqual(200));

@@ -29,7 +29,7 @@ public class AccountApiCall {
 
     public static ApiCall getValidAccountApiCall(AccountTo accountTo) {
         ApiCall getAccountApiCall = new ApiCall("Get Account by Id");
-        getAccountApiCall.setUri("service/accounts/{{lazy.global.created.account.id}}");
+        getAccountApiCall.setUri("service/accounts/{{lazy.global.created.account.id}}?settings=true");
         getAccountApiCall.addAssertionRule(Assert.responseCodeEqual(200));
         accountDetailAssertion(accountTo, getAccountApiCall);
         getAccountApiCall.addAssertionRule(Assert.equal("custom", "$.accountName", "{{lazy.global.created.account.accountName}}"));
